@@ -1,0 +1,12 @@
+application_id,stage,event_date
+A1,screen,2024-01-08
+A1,interview,2024-01-15
+A1,offer,2024-02-01
+A1,hired,2024-03-01
+A2,screen,2024-01-12
+A2,rejected,2024-01-15
+A3,screen,2024-02-18
+A3,interview,2024-03-01
+A4,screen,2024-03-10
+A5,hired,2024-01-21
+A6,hired,2024-04-10

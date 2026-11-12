@@ -1,0 +1,7 @@
+application_id,requisition_id,applied_date,source
+A1,R1,2024-01-05,referral
+A2,R1,2024-01-10,careers
+A3,R2,2024-02-15,careers
+A4,R3,2024-03-05,agency
+A5,R4,2024-01-02,campus
+A6,R5,2024-01-02,campus

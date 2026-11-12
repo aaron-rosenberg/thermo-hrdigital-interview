@@ -1,0 +1,198 @@
+{
+  "employees": {
+    "file": "employees.csv",
+    "columns": {
+      "employee_id": "TEXT",
+      "hire_date": "DATE",
+      "termination_date": "DATE",
+      "worker_type": "TEXT",
+      "country": "TEXT"
+    },
+    "key": [
+      "employee_id"
+    ],
+    "required": [
+      "employee_id",
+      "hire_date",
+      "worker_type",
+      "country"
+    ],
+    "checks": [
+      "worker_type IN ('employee', 'contingent')",
+      "termination_date IS NULL OR termination_date > hire_date"
+    ]
+  },
+  "departments": {
+    "file": "departments.csv",
+    "columns": {
+      "department_id": "TEXT",
+      "department_name": "TEXT",
+      "business_unit": "TEXT"
+    },
+    "key": [
+      "department_id"
+    ],
+    "required": [
+      "department_id",
+      "department_name",
+      "business_unit"
+    ],
+    "checks": []
+  },
+  "assignments": {
+    "file": "assignments.csv",
+    "columns": {
+      "employee_id": "TEXT",
+      "department_id": "TEXT",
+      "effective_start": "DATE",
+      "effective_end": "DATE",
+      "transfer_reason": "TEXT"
+    },
+    "key": [
+      "employee_id",
+      "effective_start"
+    ],
+    "required": [
+      "employee_id",
+      "department_id",
+      "effective_start",
+      "transfer_reason"
+    ],
+    "checks": [
+      "effective_end IS NULL OR effective_end > effective_start"
+    ]
+  },
+  "snapshots": {
+    "file": "snapshots.csv",
+    "columns": {
+      "snapshot_date": "DATE"
+    },
+    "key": [
+      "snapshot_date"
+    ],
+    "required": [
+      "snapshot_date"
+    ],
+    "checks": [
+      "snapshot_date = date(snapshot_date, 'start of month', '+1 month', '-1 day')"
+    ]
+  },
+  "requisitions": {
+    "file": "requisitions.csv",
+    "columns": {
+      "requisition_id": "TEXT",
+      "department_id": "TEXT",
+      "opened_date": "DATE",
+      "closed_date": "DATE"
+    },
+    "key": [
+      "requisition_id"
+    ],
+    "required": [
+      "requisition_id",
+      "department_id",
+      "opened_date"
+    ],
+    "checks": [
+      "closed_date IS NULL OR closed_date >= opened_date"
+    ]
+  },
+  "applications": {
+    "file": "applications.csv",
+    "columns": {
+      "application_id": "TEXT",
+      "requisition_id": "TEXT",
+      "applied_date": "DATE",
+      "source": "TEXT"
+    },
+    "key": [
+      "application_id"
+    ],
+    "required": [
+      "application_id",
+      "requisition_id",
+      "applied_date",
+      "source"
+    ],
+    "checks": []
+  },
+  "stage_events": {
+    "file": "stage_events.csv",
+    "columns": {
+      "application_id": "TEXT",
+      "stage": "TEXT",
+      "event_date": "DATE"
+    },
+    "key": [
+      "application_id",
+      "stage"
+    ],
+    "required": [
+      "application_id",
+      "stage",
+      "event_date"
+    ],
+    "checks": [
+      "stage IN ('screen','interview','offer','hired','rejected')"
+    ]
+  },
+  "absences": {
+    "file": "absences.csv",
+    "columns": {
+      "absence_id": "TEXT",
+      "employee_id": "TEXT",
+      "absence_date": "DATE",
+      "hours": "REAL",
+      "category": "TEXT"
+    },
+    "key": [
+      "absence_id"
+    ],
+    "required": [
+      "absence_id",
+      "employee_id",
+      "absence_date",
+      "hours",
+      "category"
+    ],
+    "checks": [
+      "hours > 0 AND hours <= 24",
+      "category IN ('annual_leave','sick')"
+    ]
+  },
+  "work_schedules": {
+    "file": "work_schedules.csv",
+    "columns": {
+      "employee_id": "TEXT",
+      "daily_hours": "REAL"
+    },
+    "key": [
+      "employee_id"
+    ],
+    "required": [
+      "employee_id",
+      "daily_hours"
+    ],
+    "checks": [
+      "daily_hours > 0 AND daily_hours <= 24"
+    ]
+  },
+  "holidays": {
+    "file": "holidays.csv",
+    "columns": {
+      "country": "TEXT",
+      "holiday_date": "DATE",
+      "holiday_name": "TEXT"
+    },
+    "key": [
+      "country",
+      "holiday_date"
+    ],
+    "required": [
+      "country",
+      "holiday_date",
+      "holiday_name"
+    ],
+    "checks": []
+  }
+}

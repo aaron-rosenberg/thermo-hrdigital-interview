@@ -1,0 +1,12 @@
+employee_id,department_id,effective_start,effective_end,transfer_reason
+E101,D10,2023-06-01,,hire
+E102,D20,2024-01-15,,hire
+E103,D20,2024-02-01,2024-04-01,hire
+E104,D10,2023-09-01,2024-03-15,hire
+E104,D20,2024-03-15,2024-03-25,internal_move
+E104,D30,2024-03-25,2024-04-10,internal_move
+E104,D10,2024-04-10,,internal_move
+E105,D20,2024-03-01,,hire
+E106,D30,2024-03-31,,hire
+E107,D20,2024-04-01,,hire
+E108,D30,2023-01-01,,hire
