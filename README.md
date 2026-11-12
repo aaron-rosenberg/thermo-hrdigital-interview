@@ -1,5 +1,7 @@
 # Workforce Warehouse
 
+Your task is to resolve the two reported issues in [bugs/](bugs/). Use those tickets to guide your time.
+
 People Analytics reports for headcount, recruiting, internal transfers, and workforce capacity. Python loads CSV extracts into one SQLite database and runs one SQL file per business area. All source records are synthetic; do not add personal data or credentials.
 
 ## Setup and build
