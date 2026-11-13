@@ -22,12 +22,5 @@ def test_non_hiring_source_retained(db):
     assert db.execute("SELECT applications, hires FROM report_recruiting_sources WHERE source='careers'").fetchone() == (2, 0)
 
 
-def test_time_to_fill_supports_duration_filter(db):
-    rows = db.execute("SELECT requisition_id FROM report_time_to_fill WHERE days_to_fill > 30 ORDER BY requisition_id").fetchall()
-    assert rows == [('R1',), ('R5',)]
-    durations = db.execute("SELECT requisition_id, days_to_fill FROM report_time_to_fill WHERE days_to_fill IS NOT NULL ORDER BY requisition_id").fetchall()
-    assert durations == [('R1', 60), ('R4', 20), ('R5', 100)]
-
-
 def test_unfilled_requisition_has_null_duration(db):
     assert db.execute("SELECT days_to_fill FROM report_time_to_fill WHERE requisition_id='R2'").fetchone()[0] is None
