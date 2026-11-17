@@ -3,12 +3,16 @@
 from contextlib import closing
 from pathlib import Path
 import sqlite3
+import sys
+
+ROOT = Path(__file__).resolve().parent if "__file__" in globals() else Path.cwd()
+sys.path.insert(0, str(ROOT / "src"))
 
 from workforce.runner import build
 
 
 def main() -> None:
-    root = Path(__file__).resolve().parent
+    root = ROOT
     output = root / ".local/workforce.sqlite"
     build(root / "fixtures", output)
     with closing(sqlite3.connect(output)) as connection:
