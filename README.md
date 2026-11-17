@@ -1,5 +1,7 @@
 # Workforce Warehouse
 
+blerp
+
 > [!WARNING]
 > This project uses entirely synthetic data and a local demonstration warehouse. It contains no real employee records, production infrastructure, or live system connections. Do not add real personal data or credentials.
 
